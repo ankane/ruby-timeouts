@@ -532,3 +532,7 @@ end
 appraise "zookeeper" do
   gem "zookeeper"
 end
+
+appraise "sentry_ruby" do
+  gem "sentry-ruby"
+end
