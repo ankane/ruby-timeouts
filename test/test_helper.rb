@@ -25,6 +25,8 @@ class Minitest::Test
     time = monotonic_time - started_at
     timeout = timeout..timeout + 0.5 unless timeout.is_a?(Range)
     assert_includes timeout, time
+
+    ex
   end
 
   def assert_threaded_timeout(exception = UnknownTimeoutError, timeout: 1, &block)

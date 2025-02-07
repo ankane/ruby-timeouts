@@ -156,6 +156,7 @@ Distributed Locks
 - [restforce](#restforce)
 - [rspotify](#rspotify)
 - [ruby-trello](#ruby-trello)
+- [sentry-ruby](#sentry-ruby)
 - [shopify_api](#shopify_api)
 - [sift](#sift)
 - [slack-notifier](#slack-notifier)
@@ -1489,6 +1490,20 @@ Raises
 
 - `Net::OpenTimeout` on connect timeout
 - `Net::ReadTimeout` on read timeout
+### sentry-ruby
+
+```ruby
+Sentry.init do |config|
+  config.transport.timeout = 2 # Read and write timeout when waiting for the server to return data in seconds
+  config.transport.open_timeout = 1 # Timeout waiting for the Sentry server connection to open in seconds
+end
+```
+
+Default: 2s read/write timeout, 1s open timeout
+
+Raises
+
+- the timeout error happens in a background worker. The actual error is not reported to Sentry.
 
 ### slack-notifier
 
