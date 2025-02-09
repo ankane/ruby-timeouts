@@ -1023,6 +1023,24 @@ Default: 30s
 
 This causes Puma to send a SIGKILL signal to a worker if it hasn’t shutdown within the specified time period after having received a SIGTERM signal.
 
+```ruby
+# config/puma.rb
+persistent_timeout 20
+```
+
+Default: 20s
+
+This causes Puma to close an idle persistent HTTP connection.  Keeping the connection open is the default for HTTP 1.1 requests or when the client sends the header `Connection: keep-alive`.
+
+```ruby
+# config/puma.rb
+first_data_timeout 30
+```
+
+Default: 30s
+
+Define how long the tcp socket stays open, if no data has been received by the server
+
 ### unicorn
 
 ```ruby
